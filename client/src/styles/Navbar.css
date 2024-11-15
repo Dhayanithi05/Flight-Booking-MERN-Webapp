@@ -1,0 +1,175 @@
+/* Navbar container */
+.navbar {
+  height: 64px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  background-color: #1a1a1a;
+  padding: 0 1.5rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Add these to your existing Navbar.css */
+
+.navbar-logo {
+  height: 40px; /* Adjust based on your logo size */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-logo span {
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+/* Update mobile styles */
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 32px; /* Slightly smaller on mobile */
+  }
+
+  .navbar-logo span {
+    font-size: 1rem;
+  }
+}
+
+/* Navigation options container */
+.nav-options {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Navigation items */
+.nav-options p {
+  margin: 0;
+  color: #e2e8f0;
+  cursor: pointer;
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav-options p:hover {
+  color: white;
+}
+
+/* Underline animation for nav items */
+.nav-options p::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.nav-options p:hover::after {
+  width: 100%;
+}
+
+/* Mobile menu button */
+.menu-button {
+  display: none;
+  color: white;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* Mobile menu icon */
+.menu-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  /* Hide nav-options by default on mobile */
+  .nav-options {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(30, 58, 138, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    transform: translateY(-150%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Show nav-options when active */
+  .nav-options.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-options p {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-options p:last-child {
+    border-bottom: none;
+  }
+
+  .nav-options p::after {
+    display: none;
+  }
+
+  .nav-options p:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Role-specific styles */
+.navbar.admin {
+  background: linear-gradient(to right, #1e3a8a, #1e4620);
+}
+
+.navbar.operator {
+  background: linear-gradient(to right, #1e3a8a, #3730a3);
+}
+
+/* Animation classes */
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
