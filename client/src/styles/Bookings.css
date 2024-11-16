@@ -45,7 +45,7 @@ body {
 
 /* Header section */
 .booking-header {
-  background-color: #0288d1;
+  background-color:#2563eb;
   color: white;
   padding: 16px 24px;
   display: flex;
@@ -115,7 +115,7 @@ body {
 }
 
 .booking-route {
-  background-color: #0288d1;
+  background-color: #2563eb;
   color: white;
   padding: 8px 16px;
   border-radius: 4px;
