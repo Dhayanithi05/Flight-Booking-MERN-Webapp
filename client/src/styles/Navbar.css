@@ -155,11 +155,11 @@
 
 /* Role-specific styles */
 .navbar.admin {
-  background: linear-gradient(to right, #1e3a8a, #1e4620);
+  background-color: #1a1a1a;
 }
 
 .navbar.operator {
-  background: linear-gradient(to right, #1e3a8a, #3730a3);
+  background-color: #1a1a1a;
 }
 
 /* Animation classes */

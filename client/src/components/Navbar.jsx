@@ -63,9 +63,6 @@ const Navbar = () => {
                 ) : usertype === 'admin' ? (
                     <>
                         <p onClick={() => handleNavClick('/admin')}>Home</p>
-                        <p onClick={() => handleNavClick('/all-users')}>Users</p>
-                        <p onClick={() => handleNavClick('/all-bookings')}>Bookings</p>
-                        <p onClick={() => handleNavClick('/all-flights')}>Flights</p>
                         <p onClick={handleLogout}>Logout</p>
                     </>
                 ) : usertype === 'flight-operator' ? (
