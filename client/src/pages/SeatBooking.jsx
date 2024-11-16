@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const SeatBooking = ({ onBack, onProceedToBooking }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const { state } = useNavigate().location || {}; // Use location to access passed state (if any)
   const [seatMap, setSeatMap] = useState([]);
   const navigate = useNavigate(); 
   
@@ -49,7 +50,8 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
       alert('Please select at least one seat');
       return;
     }
-    // Navigate to the booking page
+    console.log('Proceeding with seats: ', selectedSeats);
+    // Navigate to the booking page and pass selected seats as part of the state
     navigate('/bookings', { state: { selectedSeats } });
   };
 

@@ -17,7 +17,7 @@ const BookFlight = () => {
   
     useEffect(()=>{
       fetchFlightData();
-    }, [])
+    }, [id])
   
     const fetchFlightData = async () =>{
       await axios.get(`http://localhost:6001/fetch-flight/${id}`).then(
