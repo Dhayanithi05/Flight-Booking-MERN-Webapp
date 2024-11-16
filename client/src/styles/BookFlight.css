@@ -21,6 +21,7 @@
   h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: black;
   }
   
   span {
@@ -31,6 +32,7 @@
   p {
     font-size: 16px;
     margin: 5px 0;
+    color: black;
   }
   
   .b-form {
