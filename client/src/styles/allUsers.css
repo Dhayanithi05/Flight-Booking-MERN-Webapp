@@ -1,8 +1,10 @@
 /* AllUsers.css */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 .all-users-page {
-  max-width: 1200px;
+  max-width: 1500px;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 6rem;
   min-height: 100vh;
   background-color: #f8fafc;
 }
@@ -13,6 +15,7 @@
   color: #334155;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
+  padding-top: 1.5rem;
   border-bottom: 2px solid #e2e8f0;
 }
 
@@ -20,7 +23,7 @@
   background-color: white;
   border-radius: 1rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .all-users {
@@ -30,9 +33,6 @@
   max-height: 70vh;
   overflow-y: auto;
   padding-right: 1rem;
-  /* Fancy scrollbar */
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
 }
 
 /* Webkit scrollbar styles */

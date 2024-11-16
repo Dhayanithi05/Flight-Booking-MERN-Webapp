@@ -1,62 +1,132 @@
-.user-bookingsPage{
-    margin: 13vh 0 0 0;
-    height: fit-content;
-    width: 100%;
-}
+/* General styling for the page */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-.user-bookingsPage h1{
-    color: rgb(73, 111, 138);
-    margin-left: 3vw;
-}
-
-.user-bookings{
-
-    margin-top: 5vh;
-    width: 90%;
-    margin-left: 5%;
-    height: fit-content;
-    padding-bottom: 5vh;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    row-gap: 30px;
-}
-
-.user-bookings .user-booking{
-
-    background-color: rgba(237, 239, 241, 0.212);
-    width: 90%;
-    margin-left: 5%;
-    padding: 3vh 2vw;
-    border-radius: 0.7rem;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-}
-.user-bookings .user-booking:hover{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-}
-.user-bookings .user-booking span{
-    display: flex;
-    gap: 25px;
-    
-}
-
-.user-bookings .user-booking p{
+body {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: white;
     margin: 0;
-    margin-bottom: 3px;
-    color: rgb(46, 104, 135);
-}
-.user-bookings .user-booking p b{
-
-    font-weight: 600;
-}
-.user-bookings .user-booking ol{
-    margin: 0;   
-    font-size: 0.85rem;     
-}
-.user-bookings .user-booking ol b{
-   font-weight: 500;      
-}
-.user-bookings .user-booking button{
-
-    margin-top: 15px;
-}
+    padding: 0;
+    color: #fff;
+  }
+  
+  .user-bookingsPage {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .user-bookingsPage h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 4%;
+    color: #f7f7f7;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Container for bookings */
+  .user-bookings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  /* Modern airline ticket card */
+  .user-booking {
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    width: 320px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .user-booking:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .user-booking.canceled {
+    border: 3px solid red;
+    background: linear-gradient(to right, #ffe6e6, #ffcccc);
+  }
+  
+  .user-booking-header {
+    background: #1e3c72;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .user-booking-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .user-booking span {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .user-booking span p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .user-booking-body ol {
+    padding-left: 20px;
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Footer section */
+  .user-booking-footer {
+    background: #f7f7f7;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px dashed #ccc;
+  }
+  
+  .user-booking-footer p {
+    margin: 5px 0;
+    font-weight: bold;
+    color: #1e3c72;
+  }
+  
+  .user-booking-footer .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-danger {
+    background: linear-gradient(to right, #ff4d4d, #ff1a1a);
+    color: #fff;
+    border: none;
+    transition: background 0.3s ease;
+  }
+  
+  .btn-danger:hover {
+    background: linear-gradient(to right, #e60000, #b30000);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .user-bookings {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .user-booking {
+      width: 90%;
+    }
+  }
+  
