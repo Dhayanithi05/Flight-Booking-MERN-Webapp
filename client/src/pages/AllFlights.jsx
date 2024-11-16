@@ -4,62 +4,87 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/AllFlights.css';
 
 const AllFlights = () => {
-    const [flights, setFlights] = useState([]);
-    const navigate = useNavigate();
-  
-    
-    const fetchFlights = async () =>{
-      await axios.get('http://localhost:6001/fetch-flights').then(
-        (response)=>{
-          setFlights(response.data);
-          console.log(response.data)
-        }
-        )
-      }
-      
-      useEffect(()=>{
-        fetchFlights();
-      }, [])
-      
-    return (
-      <div className="allFlightsPage">
-        <h1>All Flights</h1>
-  
-        <div className="allFlights">
-  
-          {flights.map((Flight)=>{
-            return(
-  
-                <div className="allFlights-Flight" key={Flight._id}>
-                  <p><b>_id:</b> {Flight._id}</p>
-                  <span>
-                    <p><b>Flight Id:</b> {Flight.flightId}</p>
-                    <p><b>Flight name:</b> {Flight.flightName}</p>
-                  </span>
-                  <span>
-                    <p><b>Starting station:</b> {Flight.origin}</p>
-                    <p><b>Departure time:</b> {Flight.departureTime}</p>
-                  </span>
-                  <span>
-                    <p><b>Destination:</b> {Flight.destination}</p>
-                    <p><b>Arrival time:</b> {Flight.arrivalTime}</p>
-                  </span>
-                  <span>
-                    <p><b>Base price:</b> {Flight.basePrice}</p>
-                    <p><b>Total seats:</b> {Flight.totalSeats}</p>
-                  </span>
-                </div>
-            )
-          })}
-  
-  
-  
-  
-  
-   
+  const [flights, setFlights] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
+  const fetchFlights = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch('http://localhost:6001/fetch-flights');
+      const data = await response.json();
+      setFlights(data);
+    } catch (error) {
+      console.error('Error fetching flights:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFlights();
+  }, []);
+
+  return (
+    <div className="dashboard">
+      <header className="dashboard-header">
+        <h1>Flights Available</h1>
+        <button className="refresh-btn" onClick={fetchFlights}>
+          Refresh Flights
+        </button>
+      </header>
+
+      <div className="summary-stats">
+        <div className="stat-card">
+          <h3>Total Flights</h3>
+          <p>{flights.length}</p>
+        </div>
+        <div className="stat-card">
+          <h3>Total Seats</h3>
+          <p>{flights.reduce((acc, flight) => acc + flight.totalSeats, 0)}</p>
         </div>
       </div>
-    )
-  }
 
-export default AllFlights
+      <div className="flights-grid">
+        {isLoading ? (
+          <div className="loading">Loading flights...</div>
+        ) : (
+          flights.map((flight) => (
+            <div className="flight-card" key={flight._id}>
+              <div className="flight-header">
+                <h2>{flight.flightName}</h2>
+                <span className="flight-id">ID: {flight.flightId}</span>
+              </div>
+              
+              <div className="flight-details">
+                <div className="detail-row">
+                  <div className="detail-group">
+                    <label>From</label>
+                    <p>{flight.origin}</p>
+                  </div>
+                  <div className="detail-group">
+                    <label>To</label>
+                    <p>{flight.destination}</p>
+                  </div>
+                </div>
+
+                <div className="detail-row">
+                  <div className="detail-group">
+                    <label>Departure</label>
+                    <p>{flight.departureTime}</p>
+                  </div>
+                  <div className="detail-group">
+                    <label>Arrival</label>
+                    <p>{flight.arrivalTime}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default AllFlights;
