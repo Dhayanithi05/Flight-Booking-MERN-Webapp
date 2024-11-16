@@ -25,6 +25,7 @@ const LandingPage = () => {
     "Varanasi", "Jaipur"
   ].sort(); // Sorted cities alphabetically
 
+
   useEffect(() => {
     const userType = localStorage.getItem('userType');
     if (userType === 'admin') navigate('/admin');
