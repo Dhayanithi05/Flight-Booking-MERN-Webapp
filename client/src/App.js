@@ -17,6 +17,7 @@ import EditFlight from './pages/EditFlight';
 import FlightAdmin from './pages/FlightAdmin';
 import FlightBookings from './pages/FlightBookings.jsx';
 import Flights from './pages/Flights.jsx';
+import SeatBooking from './pages/SeatBooking.jsx';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route exact path = '' element={<LandingPage />} />
         <Route path='/auth' element={<LoginProtector> <Authenticate /> </LoginProtector>} />
         <Route path='/book-Flight/:id' element={<AuthProtector> <BookFlight /> </AuthProtector>} />
+        <Route path="/seatbooking" element={<SeatBooking />} />
         <Route path='/bookings' element={<AuthProtector> <Bookings /> </AuthProtector>} />
 
         <Route path='/admin' element={<AuthProtector><Admin /> </AuthProtector>} />

@@ -79,8 +79,7 @@ const BookFlight = () => {
       
       await axios.post('http://localhost:6001/book-ticket', inputs).then(
         (response)=>{
-          alert("booking successful");
-          navigate('/bookings');
+          navigate('/seatbooking', { state: inputs });
         }
       ).catch((err)=>{
         alert("Booking failed!!")
