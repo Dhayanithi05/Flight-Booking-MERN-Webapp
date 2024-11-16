@@ -2,131 +2,221 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 body {
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
-    background: white;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-  }
-  
-  .user-bookingsPage {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .user-bookingsPage h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    padding: 4%;
-    color: #f7f7f7;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Container for bookings */
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: white;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+/* Main container styling */
+.user-bookingsPage {
+  padding: 80px 24px 40px;
+  min-height: 100vh;
+  background-color: white;
+}
+
+.user-bookingsPage h1 {
+  color: black;
+  font-size: 2rem;
+  margin-bottom: 32px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.user-bookings {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+  gap: 32px;
+  padding: 0 16px;
+}
+
+/* Boarding pass style card */
+.user-booking {
+  background: white;
+  border-radius: 16px;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header section */
+.booking-header {
+  background-color: #0288d1;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-header .seat-number {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.booking-header .airline-logo {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* Main content */
+.booking-content {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr; /* Creates space for the dashed line */
+}
+
+/* Left section */
+.booking-main {
+  padding-right: 24px;
+}
+
+/* Vertical dashed separator */
+.booking-separator {
+  border-right: 2px dashed #ccc;
+  position: relative;
+  margin: 0 24px;
+}
+
+.booking-separator::before,
+.booking-separator::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  background-color: #f0f8ff;
+  border-radius: 50%;
+}
+
+.booking-separator::before {
+  top: -12px;
+}
+
+.booking-separator::after {
+  bottom: -12px;
+}
+
+/* Right section */
+.booking-summary {
+  padding-left: 24px;
+}
+
+/* Text styling */
+.booking-passenger {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.booking-route {
+  background-color: #0288d1;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 16px 0;
+}
+
+.booking-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.booking-detail-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 12px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.detail-value {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Barcode section */
+.booking-barcode {
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid #eee;
+}
+
+.booking-barcode img {
+  height: 40px;
+  margin: 8px 0;
+}
+
+.booking-id {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Status badge */
+.status-badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-confirmed {
+  background-color: #4caf50;
+  color: white;
+}
+
+.status-cancelled {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Cancel button */
+.cancel-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .user-bookings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    grid-template-columns: 1fr;
   }
-  
-  /* Modern airline ticket card */
-  .user-booking {
-    background: linear-gradient(to right, #ffffff, #f0f0f0);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    width: 320px;
-    overflow: hidden;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  .booking-content {
+    grid-template-columns: 1fr;
   }
-  
-  .user-booking:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+
+  .booking-separator {
+    display: none;
   }
-  
-  .user-booking.canceled {
-    border: 3px solid red;
-    background: linear-gradient(to right, #ffe6e6, #ffcccc);
+
+  .booking-main,
+  .booking-summary {
+    padding: 16px;
   }
-  
-  .user-booking-header {
-    background: #1e3c72;
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .user-booking-body {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .user-booking span {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .user-booking span p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #333;
-  }
-  
-  .user-booking-body ol {
-    padding-left: 20px;
-    margin: 0;
-    color: #333;
-  }
-  
-  /* Footer section */
-  .user-booking-footer {
-    background: #f7f7f7;
-    padding: 10px;
-    text-align: center;
-    border-top: 1px dashed #ccc;
-  }
-  
-  .user-booking-footer p {
-    margin: 5px 0;
-    font-weight: bold;
-    color: #1e3c72;
-  }
-  
-  .user-booking-footer .btn {
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-danger {
-    background: linear-gradient(to right, #ff4d4d, #ff1a1a);
-    color: #fff;
-    border: none;
-    transition: background 0.3s ease;
-  }
-  
-  .btn-danger:hover {
-    background: linear-gradient(to right, #e60000, #b30000);
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .user-bookings {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .user-booking {
-      width: 90%;
-    }
-  }
-  
+}
