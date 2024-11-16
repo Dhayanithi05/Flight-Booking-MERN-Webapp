@@ -45,7 +45,7 @@ const Login = ({ setIsLogin }) => {
             setErrors({ ...errors, email: '' });
           }}
         />
-        <label htmlFor="floatingInput">Email address</label>
+        <label  htmlFor="floatingInput">Email address</label>
         {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
       </div>
       <div className="form-floating mb-3 authFormInputs">
