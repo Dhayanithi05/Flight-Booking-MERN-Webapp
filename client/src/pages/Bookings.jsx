@@ -6,30 +6,35 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Bookings = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  console.log('Location State:', location.state);
   const { selectedSeats } = location.state || {}; // Destructure selectedSeats from the location state
 
   const [bookings, setBookings] = useState([]);
   const userId = localStorage.getItem('userId');
 
-  useEffect(() => {
-    fetchBookings();
-  }, []);
+  
 
   const fetchBookings = async () => {
     try {
       const response = await axios.get('http://localhost:6001/fetch-bookings');
       setBookings(response.data.reverse());
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error fetching bookings:', error);
     }
   };
+
+  useEffect(() => {
+    fetchBookings();
+  }, []);
 
   const cancelTicket = async (id) => {
     try {
       await axios.put(`http://localhost:6001/cancel-ticket/${id}`);
       alert('Ticket cancelled!');
       fetchBookings(); // Refresh bookings after cancellation
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error cancelling ticket:', error);
     }
   };

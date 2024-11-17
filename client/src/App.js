@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Navbar from './components/Navbar';
 import LandingPage from './pages/LandingPage';
@@ -28,7 +28,7 @@ function App() {
         <Route exact path = '' element={<LandingPage />} />
         <Route path='/auth' element={<LoginProtector> <Authenticate /> </LoginProtector>} />
         <Route path='/book-Flight/:id' element={<AuthProtector> <BookFlight /> </AuthProtector>} />
-        <Route path="/seatbooking" element={<SeatBooking />} />
+        <Route path='/seatbooking' element={<SeatBooking />} />
         <Route path='/bookings' element={<AuthProtector> <Bookings /> </AuthProtector>} />
 
         <Route path='/admin' element={<AuthProtector><Admin /> </AuthProtector>} />
