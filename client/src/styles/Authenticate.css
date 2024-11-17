@@ -41,6 +41,25 @@
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
+
+.authFormInputs label {
+  position: absolute;
+  left: 5px;
+  top: 25px;
+  color: #9dc1d9;
+  font-size: 1rem;
+  pointer-events: none; /* Ensures label doesn't block input */
+  transition: all 0.2s ease;
+}
+.authFormInputs input:focus + label,
+.authFormInputs input:not(:placeholder-shown) + label {
+  top: 0px;
+  left: 5px;
+  font-size: 0.8rem;
+  color: #006fc7;
+}
+
+
 /* Input field styles */
 .authFormInputs {
   margin-bottom:10px; /* Removes the absolute positioning */

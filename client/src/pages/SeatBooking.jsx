@@ -6,11 +6,11 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const { state } = useNavigate().location || {}; // Use location to access passed state (if any)
   const [seatMap, setSeatMap] = useState([]);
-  const navigate = useNavigate(); 
-  
+  const navigate = useNavigate();
+
   const ROWS = 15;
   const SEATS_PER_ROW = 6;
-  
+
   useEffect(() => {
     const initialSeatMap = [];
     for (let row = 0; row < ROWS; row++) {
@@ -63,7 +63,7 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
             <Plane /> Select Your Seats
           </h2>
         </div>
-        
+
         <div className="card-content">
           <div className="legend">
             <div className="legend-item">
@@ -82,7 +82,7 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
 
           <div className="airplane-container">
             <div className="airplane-nose"></div>
-            
+
             <div className="seat-map">
               {seatMap.map((row, rowIndex) => (
                 <div key={rowIndex} className="seat-row">
@@ -120,12 +120,12 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
               Selected seats: {selectedSeats.join(', ')}
             </div>
           )}
-          
+
           <div className="button-container">
             <button className="button secondary" onClick={onBack}>
               Back
             </button>
-            <button 
+            <button
               className="button primary"
               onClick={handleProceed}
               disabled={selectedSeats.length === 0}
@@ -142,17 +142,21 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
           background-color: #f5f5f5;
           padding: 2rem;
           display: flex;
-          justify-content: center;
-          align-items: flex-start;
+          justify-content: center; /* Centers the seat numbers horizontally */
+          align-items: center; /* Centers the seat numbers vertically if required */
+          flex-wrap: wrap; /* Wraps seats if there are many */
         }
 
         .booking-card {
           background: white;
-          border-radius: 8px;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          width: 100%;
-          max-width: 800px;
-          margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; /* Smaller width */
+  margin: 20px auto; /* Adjusted margin to ensure it doesn't overlap with navbar */
+  padding: 10px;
+  position: relative; /* Ensure the position is relative if necessary */
+  z-index: 1; /* To stay on top if there's any overlap */
         }
 
         .card-header {
@@ -184,6 +188,7 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
           display: flex;
           align-items: center;
           gap: 0.5rem;
+          color: #64748b;
         }
 
         .legend-color {
@@ -247,8 +252,13 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
           font-weight: 500;
           cursor: pointer;
           transition: all 0.2s;
+          margin: 5px;
+          padding: 10px;
+          text-align: center;
         }
 
+        
+       
         .seat:hover:not(:disabled) {
           background-color: #cbd5e1;
         }
