@@ -1,4 +1,3 @@
-/* AllFlights.css */
 :root {
   --primary-color: #2563eb;
   --secondary-color: #1e40af;
@@ -14,7 +13,7 @@
 }
 
 .dashboard {
-  padding: 5rem;
+  padding: 4rem;
   background-color: var(--background-color);
   min-height: 100vh;
 }
@@ -23,12 +22,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   padding: 0 1rem;
 }
 
 .dashboard-header h1 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   color: var(--text-primary);
   font-weight: 700;
   margin: 0;
@@ -38,12 +37,13 @@
 }
 
 .refresh-btn {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.25rem;
   background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
+  font-size: 0.875rem;
   font-weight: 600;
   transition: var(--transition);
   display: flex;
@@ -58,15 +58,15 @@
 
 .summary-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
   padding: 0 1rem;
 }
 
 .stat-card {
   background: var(--card-background);
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -80,23 +80,23 @@
 }
 
 .stat-card h3 {
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 0.5rem 0;
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
 .stat-card p {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
 .flights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Increase min-width */
+  gap: 2rem; /* Add more spacing between cards */
   padding: 1rem;
 }
 
@@ -108,6 +108,7 @@
   transition: var(--transition);
   border: 1px solid rgba(0, 0, 0, 0.05);
   position: relative;
+  min-width: 350px;
 }
 
 .flight-card:hover {
@@ -117,7 +118,7 @@
 }
 
 .flight-header {
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: var(--border-radius);
   background: linear-gradient(
     135deg,
@@ -129,26 +130,26 @@
 
 .flight-header h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 .flight-id {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   opacity: 0.9;
   margin-top: 0.25rem;
   display: inline-block;
 }
 
 .flight-details {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .detail-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
-  gap: 2rem;
+  margin-bottom: 1.25rem;
+  gap: 1.5rem;
 }
 
 .detail-group {
@@ -157,7 +158,7 @@
 
 .detail-group label {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -167,44 +168,21 @@
   margin: 0;
   color: var(--text-primary);
   font-weight: 600;
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 .loading {
   text-align: center;
-  padding: 3rem;
+  padding: 2.5rem;
   color: var(--text-secondary);
-  font-size: 1.25rem;
+  font-size: 1rem;
   grid-column: 1 / -1;
   background: var(--card-background);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
 }
 
-/* Animation for loading state */
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.loading {
-  animation: pulse 1.5s infinite ease-in-out;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .flights-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
-}
-
+/* Responsive Adjustments */
 @media (max-width: 768px) {
   .dashboard {
     padding: 1rem;
@@ -218,7 +196,7 @@
   }
 
   .dashboard-header h1 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 
   .summary-stats {
@@ -246,28 +224,4 @@
     flex-direction: row;
     gap: 1rem;
   }
-}
-
-/* Smooth scrolling for the whole page */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background-color);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--text-secondary);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--text-primary);
 }

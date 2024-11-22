@@ -146,7 +146,6 @@ const BookFlight = () => {
       (response) => {
         navigate('/seatbooking', { state: inputs });
 
-        alert("Booking successful");
         navigate('/seatbooking');
       }
     ).catch((err) => {

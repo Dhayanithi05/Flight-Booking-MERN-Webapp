@@ -1,509 +1,138 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
-/* General styling for the page */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+:root {
+  --primary-blue: #3b82f6;
+  --white: #ffffff;
+  --black: #000000;
+  --border-radius-lg: 12px;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --font-family: 'Montserrat', sans-serif;
+  --background-color: #f0f0f0; /* Updated background color */
+}
 
 body {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
-  background: white;
+  font-family: var(--font-family);
+  background: var(--background-color);
   margin: 0;
   padding: 0;
-  color: #fff;
 }
 
-/* Main container styling */
-.user-bookingsPage {
-  padding: 80px 24px 40px;
+
+.bookings-page {
+  margin-top: 4rem; /* To avoid overlap with navbar */
   min-height: 100vh;
-  background-color: white;
+  padding: 2rem 1rem;
 }
 
-.user-bookingsPage h1 {
-  color: black;
-  font-size: 2rem;
-  margin-bottom: 32px;
-  font-weight: 600;
+.bookings-page h1 {
+  color: var(--black);
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
 }
 
-.user-bookings {
-  max-width: 1200px;
+.bookings-container {
+  max-width: 900px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-  gap: 32px;
-  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* Boarding pass style card */
-.user-booking {
-  background: white;
-  border-radius: 16px;
-  padding: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
+.ticket {
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Header section */
-.booking-header {
-  background-color:#2563eb;
-  color: white;
-  padding: 16px 24px;
+.ticket:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.ticket-content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.ticket-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px dashed var(--black);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-.booking-header .seat-number {
-  font-size: 24px;
-  font-weight: bold;
+.cities {
+  color: #000000;
+  font-size: 2rem;
+  font-weight:1000;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
-.booking-header .airline-logo {
-  font-size: 14px;
-  opacity: 0.9;
+
+.flight-name {
+  color: var(--primary-blue);
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-/* Main content */
-.booking-content {
-  padding: 24px;
-  display: grid;
-  grid-template-columns: 1fr 20px 1fr; /* Creates space for the dashed line */
+.flight-no {
+  color: var(--black);
+  font-size: 1rem;
 }
 
-/* Left section */
-.booking-main {
-  padding-right: 24px;
-}
-
-/* Vertical dashed separator */
-.booking-separator {
-  border-right: 2px dashed #ccc;
-  position: relative;
-  margin: 0 24px;
-}
-
-.booking-separator::before,
-.booking-separator::after {
-  content: "";
-  position: absolute;
-  left: -12px;
-  width: 24px;
-  height: 24px;
-  background-color: #f0f8ff;
-  border-radius: 50%;
-}
-
-.booking-separator::before {
-  top: -12px;
-}
-
-.booking-separator::after {
-  bottom: -12px;
-}
-
-/* Right section */
-.booking-summary {
-  padding-left: 24px;
-}
-
-/* Text styling */
-.booking-passenger {
-  font-size: 24px;
-  font-weight: 500;
-  color: #333;
-  margin-bottom: 16px;
-}
-
-.booking-route {
-  background-color: #2563eb;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  display: inline-block;
-  margin: 16px 0;
-}
-
-.booking-details {
+.ticket-details {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin: 16px 0;
+  gap: 1rem;
 }
 
-.booking-detail-item {
-  display: flex;
-  flex-direction: column;
+.detail-item {
+  text-align: left;
 }
-
-.detail-label {
-  font-size: 12px;
-  color: #666;
-  text-transform: uppercase;
-}
-
-.detail-value {
-  font-size: 16px;
-  color: #333;
+.detail-item label {
+  font-size: 0.875rem;
+  color: var(--black);
   font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
+  text-align: left;
 }
 
-/* Barcode section */
-.booking-barcode {
-  text-align: center;
-  padding: 16px;
-  border-top: 1px solid #eee;
+.detail-item p {
+  font-size: 1rem;
+  color: var(--primary-blue);
 }
 
-.booking-barcode img {
-  height: 40px;
-  margin: 8px 0;
-}
-
-.booking-id {
-  font-size: 12px;
-  color: #666;
-}
-
-/* Status badge */
-.status-badge {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.status-confirmed {
-  background-color: #4caf50;
-  color: white;
-}
-
-.status-cancelled {
-  background-color: #f44336;
-  color: white;
-}
-
-/* Cancel button */
 .cancel-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #f44336;
-  color: white;
+  background: var(--primary-blue);
+  color: var(--white);
   border: none;
-  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-lg);
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  margin-top: 1rem;
+  text-align: center;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .cancel-button:hover {
-  background-color: #d32f2f;
+  background:rgb(197, 49, 49);
+  transform: translateY(-2px);
+  
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .user-bookings {
-    grid-template-columns: 1fr;
-  }
-
-  .booking-content {
-    grid-template-columns: 1fr;
-  }
-
-  .booking-separator {
-    display: none;
-  }
-
-  .booking-main,
-  .booking-summary {
-    padding: 16px;
-  }
-}
-
-/* Bookings.css */
-.bookings-page {
-    min-height: 100vh;
-    background-color: #f5f5f5;
-    padding: 30px 15px;
-    margin-top: 60px;
-  }
-  
-  .bookings-page h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 28px;
-  }
-  
-  .bookings-container {
-    max-width: 700px; /* Reduced max-width for smaller ticket */
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* Reduced gap between tickets */
-  }
-  
-  .ticket {
-    display: flex;
-    background: #1a1a1a;
-    border-radius: 8px; /* Reduced border-radius for smaller ticket */
-    overflow: hidden;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Reduced shadow for smaller ticket */
-    max-width: 100%; /* Ensure it fits within container */
-  }
-  
-  .ticket-left {
-    padding: 12px; /* Reduced padding */
-    background: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 120px; /* Reduced width */
-  }
-  
-  .qr-code {
-    width: 100px; /* or any custom width */
-    height: 100px; /* or any custom height */
-    background: white;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .qr-code img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  
-  .ticket-divider {
-    position: relative;
-    width: 20px; /* Reduced width */
-    background: #1a1a1a;
-  }
-  
-  .divider-line {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    border-left: 2px dashed #444;
-    transform: translateX(-50%);
-  }
-  
-  .divider-circles {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px; /* Reduced width */
-  }
-  
-  .circle-top,
-  .circle-bottom {
-    position: absolute;
-    left: 50%;
-    width: 20px; /* Reduced width */
-    height: 20px; /* Reduced height */
-    background: #f5f5f5;
-    border-radius: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .circle-top {
-    top: -10px;
-  }
-  
-  .circle-bottom {
-    bottom: -10px;
-  }
-  
-  .ticket-right {
-    flex: 1;
-    padding: 12px; /* Reduced padding */
-    position: relative;
-  }
-  
-  .ticket-header {
-    margin-bottom: 20px; /* Reduced margin */
-  }
-  
-  .flight-route {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Reduced margin */
-  }
-  
-  .departure,
-  .arrival {
-    text-align: center;
-  }
-  
-  .departure h2,
-  .arrival h2 {
-    font-size: 25px; /* Reduced font size */
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #000000; /* Lighter color for better visibility */
-  }
-  
-  .departure p,
-  .arrival p {
-    font-size: 10px; /* Reduced font size */
-    color: #000000; /* Lighter color for better visibility */
-  }
-  
-  .flight-info {
-    
-    text-align: center;
-  }
-  
-  .flight-number {
-    display: block;
-    font-weight: bold;
-    font-size: 12px; /* Reduced font size */
-    color: #000000;
-    margin-bottom: 5px;
-  }
-  
-  .flight-time {
-    background: #2ecc71;
-    padding: 4px 10px; /* Reduced padding */
-    border-radius: 20px;
-    display: inline-block;
-    text-align: center;
-  }
-  
-  .duration {
-    font-size: 10px; /* Reduced font size */
-    font-weight: 500;
-  }
-  
-  .ticket-details {
-    border-top: 1px solid #333;
-    padding-top: 10px; /* Reduced padding */
-  }
-  
-  .detail-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Reduced margin */
-  }
-  
-  .detail-item {
-    flex:1;
-
-  }
-  
-  .detail-item label {
-    display: block;
-    font-size: 10px; /* Reduced font size */
-    color: #000000; /* Lighter color */
-    margin-bottom: 4px;
-  }
-  
-  .detail-item p {
-    font-size: 15px; /* Reduced font size */
-    font-weight: 500;
-    color: #fff; /* Ensure text is white for contrast */
-  }
-  
-  .cancel-button {
-    margin-top: 10px; /* Reduced margin */
-    background: #e74c3c;
-    color: white;
-    border: none;
-    padding: 6px 12px; /* Reduced padding */
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .cancel-button:hover {
-    background: #c0392b;
-  }
-  
-  .booking-status {
-    position: absolute;
-    top: 10px; /* Reduced position */
-    right: 10px; /* Reduced position */
-    padding: 4px 8px; /* Reduced padding */
-    border-radius: 20px;
-    font-size: 8px; /* Reduced font size */
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-  
-  .booking-status.confirmed {
-    background: #2ecc71;
-    color: white;
-  }
-  
-  .booking-status.cancelled {
-    background: #e74c3c;
-    color: white;
-  }
-  
-  @media (max-width: 768px) {
-    .ticket {
-      flex-direction: column;
-    }
-  
-    .ticket-left {
-      width: 100%;
-      padding: 10px; /* Reduced padding */
-    }
-  
-    .ticket-divider {
-      height: 20px; /* Reduced height */
-      width: 100%;
-    }
-  
-    .divider-line {
-      left: 0;
-      right: 0;
-      top: 50%;
-      border-left: none;
-      border-top: 2px dashed #444;
-      transform: translateY(-50%);
-    }
-  
-    .divider-circles {
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%;
-      height: 20px; /* Reduced height */
-    }
-  
-    .circle-top,
-    .circle-bottom {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-  
-    .circle-top {
-      left: -10px;
-    }
-  
-    .circle-bottom {
-      left: auto;
-      right: -10px;
-    }
-  
-    .flight-route {
-      flex-direction: column;
-      gap: 10px; /* Reduced gap */
-    }
-  
-    .detail-row {
-      flex-direction: column;
-      gap: 5px; /* Reduced gap */
-    }
-  }
-  

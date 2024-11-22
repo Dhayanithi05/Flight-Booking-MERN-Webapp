@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const AuthProtector =  ({ children }) => {
+const AuthProtector = ({ children }) => {
+  const navigate = useNavigate();
 
   useEffect(() => {
-
+    // Check if 'userType' is in localStorage
     if (!localStorage.getItem('userType')) {
-      window.location.href = '/';
+      navigate('/'); // Redirect to login page if not authenticated
     }
-  }, [localStorage]);
-
+  }, []); // Empty dependency array means this runs only once on component mount
 
   return children;
 };

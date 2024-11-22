@@ -59,22 +59,18 @@ const AllFlights = () => {
               <div className="flight-details">
                 <div className="detail-row">
                   <div className="detail-group">
-                    <label>From</label>
-                    <p>{flight.origin}</p>
+                  <p>{flight.origin ? flight.origin.slice(0, 3).toUpperCase() : "N/A"}</p>
                   </div>
                   <div className="detail-group">
-                    <label>To</label>
-                    <p>{flight.destination}</p>
+                  <p>{flight.destination ? flight.destination.slice(0, 3).toUpperCase() : "N/A"}</p>
                   </div>
                 </div>
 
                 <div className="detail-row">
                   <div className="detail-group">
-                    <label>Departure</label>
                     <p>{flight.departureTime}</p>
                   </div>
                   <div className="detail-group">
-                    <label>Arrival</label>
                     <p>{flight.arrivalTime}</p>
                   </div>
                 </div>

@@ -51,6 +51,7 @@ const SeatBooking = ({ onBack, onProceedToBooking }) => {
       return;
     }
     console.log('Proceeding with seats: ', selectedSeats);
+    alert('Booking successful!');
     // Navigate to the booking page and pass selected seats as part of the state
     navigate('/bookings', { state: { selectedSeats } });
   };

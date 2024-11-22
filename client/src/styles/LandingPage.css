@@ -45,8 +45,8 @@
   color: #1a1a1a;
   font-size: 2.3rem;
   font-style:normal;
-  font-weight: 600;
-  margin-top: 3rem;
+  font-weight: 500;
+  margin-top: 2rem;
   max-width: 600px;
   position:relative;
   z-index: 1;
@@ -99,12 +99,7 @@
 }
 
 .form-group label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #4b5563;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
+ color: white;  
 }
 
 .form-group select,
