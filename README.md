@@ -8,5 +8,5 @@ Web application project using the MERN (MongoDB, Express, React, Node.js) stack 
 # Choose your seat
 ![Screenshot 2024-11-17 224704](https://github.com/user-attachments/assets/efd6e732-d433-47cb-892b-42f8379b4643)
 # Confirm your booking and grab your tickets
-![tickets](https://github.com/user-attachments/assets/3569d025-99d9-45a0-9839-d7ef006568e9)
+
 
