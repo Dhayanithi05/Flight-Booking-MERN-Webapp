@@ -1,6 +1,7 @@
 /* Ensure body does not overlap with navbar */
 body {
-    padding-top: 60px; /* Add top padding to prevent content overlap with navbar */
+    padding-top: 60px;/* Add top padding to prevent content overlap with navbar */
+    
   }
   
   /* FlightAdmin container */

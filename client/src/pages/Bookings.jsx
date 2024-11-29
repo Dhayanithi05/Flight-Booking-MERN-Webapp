@@ -6,7 +6,6 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const Bookings = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log('Location State:', location.state);
   const { selectedSeats } = location.state || {}; // Destructure selectedSeats from the location state
 
   const [bookings, setBookings] = useState([]);

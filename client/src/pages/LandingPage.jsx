@@ -104,13 +104,11 @@ const LandingPage = () => {
                 checked={checkBox}
                 onChange={(e) => setCheckBox(e.target.checked)}
               />
-              <label htmlFor="returnTrip">Round Trip</label>
             </div>
           </div>
 
           <div className="search-form">
             <div className="form-group">
-              <label><MapPin className="inline-icon" /> From</label>
               <select value={departure} onChange={(e) => setDeparture(e.target.value)}>
                 <option value="">Select City</option>
                 {cities.map(city => (
@@ -120,7 +118,6 @@ const LandingPage = () => {
             </div>
 
             <div className="form-group">
-              <label><MapPin className="inline-icon" /> To</label>
               <select value={destination} onChange={(e) => setDestination(e.target.value)}>
                 <option value="">Select City</option>
                 {cities.map(city => (
@@ -130,7 +127,6 @@ const LandingPage = () => {
             </div>
 
             <div className="form-group">
-              <label><Calendar className="inline-icon" /> Departure</label>
               <input
                 type="date"
                 value={departureDate}
@@ -141,7 +137,6 @@ const LandingPage = () => {
 
             {checkBox && (
               <div className="form-group">
-                <label><Calendar className="inline-icon" /> Return</label>
                 <input
                   type="date"
                   value={returnDate}

@@ -7,6 +7,7 @@ const AuthProtector = ({ children }) => {
   useEffect(() => {
     // Check if 'userType' is in localStorage
     if (!localStorage.getItem('userType')) {
+      
       navigate('/'); // Redirect to login page if not authenticated
     }
   }, []); // Empty dependency array means this runs only once on component mount

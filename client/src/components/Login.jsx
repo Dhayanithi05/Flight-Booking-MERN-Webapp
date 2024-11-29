@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react';
 import { GeneralContext } from '../context/GeneralContext';
 
 const Login = ({ setIsLogin }) => {
-  const { setEmail, setPassword, login } = useContext(GeneralContext);
-  const [email, localSetEmail] = useState('');
-  const [password, localSetPassword] = useState('');
+  const { login } = useContext(GeneralContext);
+  const [email, SetEmail] = useState('');
+  const [password, SetPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const handleLogin = async (e) => {
@@ -23,11 +23,9 @@ const Login = ({ setIsLogin }) => {
       return;
     }
 
-    // Update the global state in context
-    setEmail(email);
-    setPassword(password);
+    
 
-    await login();
+    await login(email, password);
   };
 
   return (
@@ -41,7 +39,7 @@ const Login = ({ setIsLogin }) => {
           placeholder="name@example.com"
           value={email}
           onChange={(e) => {
-            localSetEmail(e.target.value);
+            SetEmail(e.target.value);
             setErrors({ ...errors, email: '' });
           }}
         />
@@ -56,7 +54,7 @@ const Login = ({ setIsLogin }) => {
           placeholder="Password"
           value={password}
           onChange={(e) => {
-            localSetPassword(e.target.value);
+            SetPassword(e.target.value);
             setErrors({ ...errors, password: '' });
           }}
         />

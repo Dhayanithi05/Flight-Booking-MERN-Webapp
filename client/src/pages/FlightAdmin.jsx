@@ -13,7 +13,7 @@ const FlightAdmin = () => {
 
   useEffect(()=>{
     fetchUserData();
-  }, [])
+  }, [])  
 
   const fetchUserData = async () =>{
     try{
@@ -21,7 +21,7 @@ const FlightAdmin = () => {
       await axios.get(`http://localhost:6001/fetch-user/${id}`).then(
         (response)=>{
           setUserDetails(response.data);
-          console.log(response.data);
+          
         }
       )
 
