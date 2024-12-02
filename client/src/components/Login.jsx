@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { GeneralContext } from '../context/GeneralContext';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
 const Login = ({ setIsLogin }) => {
   const { login } = useContext(GeneralContext);
   const [email, SetEmail] = useState('');
   const [password, SetPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ const Login = ({ setIsLogin }) => {
       return;
     }
 
-    
+
 
     await login(email, password);
   };
@@ -43,12 +45,12 @@ const Login = ({ setIsLogin }) => {
             setErrors({ ...errors, email: '' });
           }}
         />
-        <label  htmlFor="floatingInput">Email address</label>
+        <label htmlFor="floatingInput">Email address</label>
         {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
       </div>
       <div className="form-floating mb-3 authFormInputs">
         <input
-          type="password"
+          type={passwordVisible ? 'text' : 'password'}
           className="form-control"
           id="floatingPassword"
           placeholder="Password"
@@ -60,6 +62,14 @@ const Login = ({ setIsLogin }) => {
         />
         <label htmlFor="floatingPassword">Password</label>
         {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+
+        {/* Password Eye Icon */}
+        <span
+          className="password-eye"
+          onClick={() => setPasswordVisible(!passwordVisible)} 
+        >
+          {passwordVisible ? <BsEyeSlash /> : <BsEye />}
+        </span>
       </div>
       <button type="submit" className="btn btn-primary">
         Sign in

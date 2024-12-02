@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { GeneralContext } from '../context/GeneralContext';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+
 
 const Register = ({ setIsLogin }) => {
   const {
@@ -18,6 +20,7 @@ const Register = ({ setIsLogin }) => {
     usertype: '',
   });
   const [errors, setErrors] = useState({});
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
@@ -106,7 +109,7 @@ const Register = ({ setIsLogin }) => {
 
       <div className="form-floating mb-3 authFormInputs">
         <input
-          type="password"
+          type={passwordVisible ? 'text' : 'password'}
           className="form-control"
           id="floatingPassword"
           name="password"
@@ -115,6 +118,15 @@ const Register = ({ setIsLogin }) => {
         />
         <label htmlFor="floatingPassword">Password</label>
         {errors.password && <small className="text-danger">{errors.password}</small>}
+
+        {/* Password Eye Icon */}
+        <span
+          className="password-eye"
+          onClick={() => setPasswordVisible(!passwordVisible)} 
+        >
+          {passwordVisible ? <BsEyeSlash /> : <BsEye />}
+        </span>
+        
       </div>
 
       <select
