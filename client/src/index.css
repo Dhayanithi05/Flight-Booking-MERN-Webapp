@@ -19,6 +19,8 @@ html, body {
   font-family: Arial, sans-serif; /* Or any preferred font */
   line-height: 1.6;
   margin-top: -60px;
+  width: 100%;
+  height: 100%;
 }
 
 /* 2. Adjust for Navbar (if using fixed positioning) */
@@ -44,6 +46,9 @@ body {
 .container, .page-wrapper {
   margin-top: 0;
   padding-top: 0;
+  width: 100%;
+  max-width: 1200px; /* Adjust max-width as needed */
+  margin: 0 auto;
 }
 
 /* 4. Debugging Outline (optional for troubleshooting) */
@@ -61,4 +66,10 @@ body {
 .notApproved-box, .admin-page-cards {
   margin: 0;
   padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; /* Add padding for smaller screens */
+  }
 }

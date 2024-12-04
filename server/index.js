@@ -15,7 +15,7 @@ app.use(cors());
 // mongoose setup
 
 const PORT = 6001;
-mongoose.connect('mongodb://localhost:27017/FlightBookingMERN', {
+mongoose.connect('mongodb+srv://root:Navin123%40@flight-booking-app.tubg1.mongodb.net/FlightBookingMERN ', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }
@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost:27017/FlightBookingMERN', {
 
     // All the client-server activites
 
-
+    console.log('Connected to MongoDB');
     app.post('/register', async (req, res) => {
         const { username, email, usertype, password } = req.body;
         let approval = 'approved';
@@ -188,6 +188,7 @@ mongoose.connect('mongodb://localhost:27017/FlightBookingMERN', {
 
         try {
             const flights = await Flight.find();
+            console.log(flights);
             res.json(flights);
 
         } catch (err) {

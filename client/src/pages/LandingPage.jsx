@@ -56,6 +56,7 @@ const LandingPage = () => {
       setError("");
       setLoading(true);
       const response = await axios.get('http://localhost:6001/fetch-flights');
+      console.log(response.data);
       setFlights(response.data);
     } catch (err) {
       setError("Failed to fetch flights. Please try again.");
