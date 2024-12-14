@@ -5,16 +5,13 @@ Demo - <a href="https://drive.google.com/file/d/1FEt217XAzGkhIPou8aNikEvLHj8U7XP
 A **Flight Booking App** built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js) typically provides users with a seamless platform for searching, booking, and managing flight reservations. Below is a comprehensive project overview:
 
 ---
-
-### **Objective**
-To design a dynamic and responsive flight booking application that allows users to:
-- Search for flights based on destination, date, and preferences.
-- View flight details such as timing, pricing, and seat availability.
-- Book flights securely with payment integration.
-- Manage bookings and view ticket history.
-
+### **Team Members**
+1. Dhayanithi K  NM id- DF86022703336F9ACBD49839F797C91D
+2. Hemanth V  NM id- C2DAA01BB26BD929EAA4AAD5F5EEDF1D
+3. Kevin B  NM id-77EB942B4A0B8D389694455B2227FF7C
+4. Thulasi Navaneethan N  NM id-700EF6A17B802B4B56C45F40A850C483
+5. Srinivasulu V  NM id-2B49FEBDBE4F4F3A7DB4E7C4C2D1B467
 ---
-
 ### **Key Features**
 #### 1. **User Authentication**
    - **Sign Up & Login**: Users can create accounts and log in securely using **JWT (JSON Web Token)** for session management.
