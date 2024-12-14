@@ -61,7 +61,6 @@ To design a dynamic and responsive flight booking application that allows users 
 #### 1. **Frontend**: React.js
    - **React Router**: For navigation.
    - **Redux/Context API**: For state management.
-   - **Axios**: For API calls.
    - **Material-UI/Bootstrap**: For styling and UI components.
 
 #### 2. **Backend**: Node.js & Express.js
@@ -80,32 +79,6 @@ To design a dynamic and responsive flight booking application that allows users 
    - **Database**: Hosted on **MongoDB Atlas**.
 
 ---
-
-### **Project Workflow**
-1. **Planning & Design**:
-   - Wireframes and user flow diagrams.
-   - Database schema design.
-
-2. **Development**:
-   - Backend API development.
-   - Frontend implementation and state management.
-
-3. **Testing**:
-   - Unit and integration tests for APIs.
-   - Cross-browser and device compatibility tests.
-
-4. **Deployment & Maintenance**:
-   - Regular updates for feature enhancements.
-   - Bug fixes and performance optimization.
-
----
-
-### **Possible Enhancements**
-- AI-powered flight price prediction.
-- Travel insurance integration.
-- Multi-currency support.
-- Integration with hotel and car rental services for a complete travel booking solution.
-
 This structure can be tailored to meet specific project requirements or user demands. Let me know if you need help with a specific component or code snippets!
 ![Thumbnail](https://github.com/user-attachments/assets/7bda8273-6bb1-4715-af6f-7c8358b38997)
 # Search Flights
